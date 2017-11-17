@@ -28,19 +28,10 @@ client.on("guildMemberRemove", (member) => {
 client.on("message", msg => {
   //console.log(msg)
   if (msg.content === 'ryan jones') {
-    msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg');
-  }
-  if (msg.content === 'who is foxxxie'){
-    msg.reply('https://img13.deviantart.net/1351/i/2015/004/2/6/jesus_senpai_by_johnpohlman-d8clncq.png');
-  }
-   if (msg.content === 'lillet'){
-    msg.reply('https://i.pinimg.com/736x/d4/e2/85/d4e285ca9d7d65116c42caffca2a7fb9--kawaii-things-kawaii-stuff.jpg');
+    msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
   }
   if (msg.content === 'who is ian'){
     msg.reply('ᕙ(˵ ಠ ਊ ಠ ˵)ᕗ');
-  }
-  if (msg.content === 'who is paul') {
-    msg.reply('He is second in command. Just nobody knows that yet.');
   }
   if (msg.content === '~hello') { 
     msg.reply('**HELLO**');
