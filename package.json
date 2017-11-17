@@ -1,0 +1,18 @@
+{
+  "name": "Charm_Bot",
+  "version": "1.0.0",
+  "description": "quite a charming bot",
+  "main": "bot.js",
+  "author": "iAN",
+  "dependencies": {
+    "discord.io": "^2.5.2",
+    "discord.js": "^11.2.1",
+    "discord.js-music": "^1.0.3",
+    "discord.js-music-v11": "^1.3.4",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "opusscript": "0.0.3",
+    "request": "^2.81.0",
+    "winston": "^2.3.1",
+    "ytdl-core": "^0.17.1"
+  }
+}
