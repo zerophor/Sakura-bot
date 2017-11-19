@@ -1,7 +1,11 @@
 const Discord = require("discord.js");
 const Music = require("discord.js-music-v11")
+const Cleverbot = require("cleverbot-node");
 const client = new Discord.Client();
 const newUsers = new Discord.Collection();
+const clbot = new Cleverbot;
+clbot.configure({botapi: "CC5hrPSZOpPA14AGI8IfPODvZYQ"});
+
 
 
 client.on('ready', () => {
@@ -120,7 +124,17 @@ client.on("message", msg => {
         msg.reply('Something is wrong, I am sorry');
     }
   }
+  if (msg.channel.type === "dm" && msg.author.bot === false ) {
+    clbot.write(msg.content, (response) => {
+      msg.channel.startTyping();
+      setTimeout(() => {
+        msg.channel.send(response.output).catch(console.error);
+        msg.channel.stopTyping();
+      }, Math.random() * (1 - 3) + 1 * 1);
+    });
+  }
 });
 Music(client);
 
-client.login('<token>');
+
+client.login('token');
