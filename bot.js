@@ -10,6 +10,14 @@ clbot.configure({botapi: "CC5hrPSZOpPA14AGI8IfPODvZYQ"});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setGame(`on ${client.guilds.size} servers`);
+
+});
+
+client.on("guildCreate", guild => {
+  // This event triggers when the bot joins a guild.
+  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+  client.user.setGame(`you`);
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -24,15 +32,21 @@ client.on("guildMemberAdd", (member) => {
   }
 });
 
-client.on("guildMemberRemove", (member) => {
+/*client.on("guildMemberRemove", (member) => {
   const guild = member.guild;
   guild.channels.get(guild.id).send("Fuckoutahere" + member + "\n http://img1.wikia.nocookie.net/__cb20140626045029/degrassi/images/4/41/Shiina_threatening.jpg" );
-});
+});*/
 
 client.on("message", msg => {
-  //console.log(msg)
+
   if (msg.content === 'ryan jones') {
+    console.log(client)
     msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
+  }
+  if (msg.content === '~re-zoop') {
+    console.log(guild)
+    guild.pruneMembers(0,true,'git fucked nurd')
+    msg.reply('octopus')
   }
   if (msg.content === 'who is ian'){
     msg.reply('ᕙ(˵ ಠ ਊ ಠ ˵)ᕗ');
