@@ -147,17 +147,29 @@ client.on("message", msg => {
       }, Math.random() * (1 - 3) + 1 * 1);
     });
   }
+<<<<<<< HEAD
 if (msg.content[0] === '~' && msg.content[1] === '~' && msg.author.bot === false ) {
+=======
+  if (msg.content[0] === "~" && msg.content[1] === "~" && msg.author.bot === false ) {
+>>>>>>> 32faec2f1cb131f581d818728ce79a10fdb3fde8
     clbot.write(msg.content, (response) => {
       msg.channel.startTyping();
       setTimeout(() => {
         msg.channel.send(response.output).catch(console.error);
         msg.channel.stopTyping();
+<<<<<<< HEAD
       }, Math.random() * (1 - 3) + 1 * 1);
+=======
+      }, Math.random() * (1 - 3) + 1 * 100);
+>>>>>>> 32faec2f1cb131f581d818728ce79a10fdb3fde8
     });
   }
 });
 Music(client);
 
 
+<<<<<<< HEAD
 client.login('MzgxMTY5ODg1MzgxNjU2NTc2.DPSYAw.NvZmxj-v5YspFR_zahl9p1w0hCs');
+=======
+client.login('');
+>>>>>>> 32faec2f1cb131f581d818728ce79a10fdb3fde8
