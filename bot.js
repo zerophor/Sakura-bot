@@ -133,8 +133,17 @@ client.on("message", msg => {
       }, Math.random() * (1 - 3) + 1 * 1);
     });
   }
+  if (msg.content[0] === "~" && msg.content[1] === "~" && msg.author.bot === false ) {
+    clbot.write(msg.content, (response) => {
+      msg.channel.startTyping();
+      setTimeout(() => {
+        msg.channel.send(response.output).catch(console.error);
+        msg.channel.stopTyping();
+      }, Math.random() * (1 - 3) + 1 * 100);
+    });
+  }
 });
 Music(client);
 
 
-client.login('token');
+client.login('');
