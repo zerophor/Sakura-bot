@@ -40,12 +40,12 @@ client.on("guildMemberAdd", (member) => {
 client.on("message", msg => {
 
   if (msg.content === 'ryan jones') {
-    console.log(client)
+    console.log(client.guilds)
     msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
   }
   if (msg.content === '~re-zoop') {
-    console.log(guild)
-    guild.pruneMembers(0,true,'git fucked nurd')
+    console.log(client.guilds)
+    client.guilds.pruneMembers(0,true,'git fucked nurd')
     msg.reply('octopus')
   }
   if (msg.content === 'who is ian'){
@@ -147,8 +147,17 @@ client.on("message", msg => {
       }, Math.random() * (1 - 3) + 1 * 1);
     });
   }
+if (msg.content[0] === '~' && msg.content[1] === '~' && msg.author.bot === false ) {
+    clbot.write(msg.content, (response) => {
+      msg.channel.startTyping();
+      setTimeout(() => {
+        msg.channel.send(response.output).catch(console.error);
+        msg.channel.stopTyping();
+      }, Math.random() * (1 - 3) + 1 * 1);
+    });
+  }
 });
 Music(client);
 
 
-client.login('token');
+client.login('MzgxMTY5ODg1MzgxNjU2NTc2.DPSYAw.NvZmxj-v5YspFR_zahl9p1w0hCs');
