@@ -4,7 +4,7 @@ const Cleverbot = require("cleverbot-node");
 const client = new Discord.Client();
 const newUsers = new Discord.Collection();
 const clbot = new Cleverbot;
-clbot.configure({botapi: "CC5hrPSZOpPA14AGI8IfPODvZYQ"});
+clbot.configure({botapi: "CC5hrPSZOpPA14AGI8IfPODvZYQ"})
 
 
 
@@ -12,13 +12,13 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setGame(`on ${client.guilds.size} servers`);
 
-});
+})
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   client.user.setGame(`you`);
-});
+})
 
 client.on("guildMemberAdd", (member) => {
   const guild = member.guild;
@@ -30,7 +30,7 @@ client.on("guildMemberAdd", (member) => {
     guild.channels.get(guild.id).send("https://images7.alphacoders.com/677/677447.jpg \n" + "Hello," + userlist + " and welcome");
     newUsers[guild.id].clear();
   }
-});
+})
 
 /*client.on("guildMemberRemove", (member) => {
   const guild = member.guild;
@@ -138,38 +138,28 @@ client.on("message", msg => {
         msg.reply('Something is wrong, I am sorry');
     }
   }
-  if (msg.channel.type === "dm" && msg.author.bot === false ) {
+ /* if (msg.channel.type === "dm" && msg.author.bot === false ) {
     clbot.write(msg.content, (response) => {
       msg.channel.startTyping();
       setTimeout(() => {
         msg.channel.send(response.output).catch(console.error);
         msg.channel.stopTyping();
       }, Math.random() * (1 - 3) + 1 * 1);
-    });
+    })
   }
-<<<<<<< HEAD
-if (msg.content[0] === '~' && msg.content[1] === '~' && msg.author.bot === false ) {
-=======
-  if (msg.content[0] === "~" && msg.content[1] === "~" && msg.author.bot === false ) {
->>>>>>> 32faec2f1cb131f581d818728ce79a10fdb3fde8
+
+  if (msg.content[0] === '~' && msg.content[1] === '~' && msg.author.bot === false ) {
     clbot.write(msg.content, (response) => {
       msg.channel.startTyping();
       setTimeout(() => {
         msg.channel.send(response.output).catch(console.error);
         msg.channel.stopTyping();
-<<<<<<< HEAD
       }, Math.random() * (1 - 3) + 1 * 1);
-=======
-      }, Math.random() * (1 - 3) + 1 * 100);
->>>>>>> 32faec2f1cb131f581d818728ce79a10fdb3fde8
-    });
-  }
-});
+    })
+  }*/
 Music(client);
 
 
-<<<<<<< HEAD
+
 client.login('MzgxMTY5ODg1MzgxNjU2NTc2.DPSYAw.NvZmxj-v5YspFR_zahl9p1w0hCs');
-=======
-client.login('');
->>>>>>> 32faec2f1cb131f581d818728ce79a10fdb3fde8
+
