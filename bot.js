@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const Token = require("./auth.json");
 const Music = require("discord.js-music-v11")
 const Cleverbot = require("cleverbot-node");
 const client = new Discord.Client();
@@ -138,7 +139,7 @@ client.on("message", msg => {
         msg.reply('Something is wrong, I am sorry');
     }
   }
- /* if (msg.channel.type === "dm" && msg.author.bot === false ) {
+  if (msg.channel.type === "dm" && msg.author.bot === false ) {
     clbot.write(msg.content, (response) => {
       msg.channel.startTyping();
       setTimeout(() => {
@@ -148,18 +149,26 @@ client.on("message", msg => {
     })
   }
 
-  if (msg.content[0] === '~' && msg.content[1] === '~' && msg.author.bot === false ) {
+
+if (msg.content[0] === '~' && msg.content[1] === '~' && msg.author.bot === false ) {
+
     clbot.write(msg.content, (response) => {
       msg.channel.startTyping();
       setTimeout(() => {
         msg.channel.send(response.output).catch(console.error);
         msg.channel.stopTyping();
+
+
       }, Math.random() * (1 - 3) + 1 * 1);
-    })
-  }*/
+
+    });
+  }
+});
+
 Music(client);
 
 
 
-client.login('MzgxMTY5ODg1MzgxNjU2NTc2.DPSYAw.NvZmxj-v5YspFR_zahl9p1w0hCs');
+
+client.login(Token.token);
 
