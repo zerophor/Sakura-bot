@@ -11,14 +11,11 @@ clbot.configure({botapi: "CC5hrPSZOpPA14AGI8IfPODvZYQ"})
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
-
+  client.user.setGame(`on ${client.guilds.size} servers`,"https://www.twitch.tv/food",1);
 })
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setGame(`you`);
 })
 
 client.on("guildMemberAdd", (member) => {
@@ -39,21 +36,33 @@ client.on("guildMemberAdd", (member) => {
 });*/
 
 client.on("message", msg => {
-
+  var enemy = msg.guild.members.length
+  var debug = msg.guild.members.array()
   if (msg.content === 'ryan jones') {
-    console.log(client.guilds)
+    console.log ("===" + msg.guild + "===")
+    console.log(debug[0])
     msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
-  }
-  if (msg.content === '~re-zoop') {
-    console.log(client.guilds)
-    client.guilds.pruneMembers(0,true,'git fucked nurd')
-    msg.reply('octopus')
   }
   if (msg.content === 'who is ian'){
     msg.reply('ᕙ(˵ ಠ ਊ ಠ ˵)ᕗ');
   }
   if (msg.content === '~hello') { 
     msg.reply('**HELLO**');
+  }
+  if (msg.content === '~bone_zone') { 
+    msg.guild.pruneMembers(1, true )
+  .then(pruned => console.log(`This will prune ${pruned} people!`))
+  .catch(console.error);
+  }
+  if (msg.content === "~kick") {
+    let modRole = msg.guild.roles.find("name", "Moderators");
+    if(msg.member.roles.has(modRole.id)) { 
+      let kickMember = msg.guild.member(msg.mentions.users.first());
+      msg.guild.member(kickMember).kick();
+      msg.channel.sendMessage("Member Kicked.");
+    } else {
+      return msg.reply("You dont have the perms to kick members. scrub.");
+    }
   }
   /*if (msg.content === '~rules') { 
     msg.channel.send("Hello everyone Welcome to the guild Before you get started let\'s go over some basic rules 1 Please refrain from shit talking other players outside AND inside the guild We don\'t want any bad blood or salt If it\'s just friendly banter, that\'s ok. 2. Be nice to your guild mates at all times. Again friendly banter is ok, but let\'s not create any drama. 3.  The only time NSFW images or content is allowed is if it is relevant to something occuring and if it\’s in offtopic 4. Please be active as much as you want. There will be Node Wars in the future and we will keep you updated. If you are unable to log on for an extended amount of time, please let us know in inactive 5. Bots will only work in bots, so please avoid using commands where they won\'t work. 6. If you need a contract renewal, or want to invite a friend into the guild, just let one of the officers know and we will be happy to help you. 7.  Absolutely no karma bombing. It just causes unnecessary problems. 8. Please change your nickname to your family name. It helps us quite a bit. If you don\’t know how, right click on your name in the server and hit change nickname. 9. Please attach your Class with the command ?rank [class name]. This will help everyone in the server! Thank you for reading and following the rules!",{
@@ -74,11 +83,11 @@ client.on("message", msg => {
         msg.reply('Something is wrong, I am sorry');
     }
   }
-  if (msg.content === '~theme') {
+  if (msg.content === '~www') {
     if (msg.member.voiceChannel) {
         msg.member.voiceChannel.join()
             .then(connection => {
-                connection.playFile('C:/Users/Ian/Desktop/CHARM_BOT/theme.mp3.mp3');
+                connection.playFile('./Wild_wild_west.mp3');
                 msg.reply('**MUSIC TIME!!!**');
             })
             .then(dispatcher => {
