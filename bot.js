@@ -40,7 +40,7 @@ client.on("message", msg => {
   var debug = msg.guild.members.array()
   if (msg.content === 'ryan jones') {
     console.log ("===" + msg.guild + "===")
-    console.log(debug[0])
+    console.log(debug[0].user)
     msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
   }
   if (msg.content === 'who is ian'){
