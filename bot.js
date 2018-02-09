@@ -51,8 +51,8 @@ client.on("message", msg => {
   }
   if (msg.content === '~bone_zone') { 
     for (var i = msg.guild.members.array().length - 1; i >= 0; i--) {
-      msg.guild.members.array()[i].user.id.ban(100000000)
-      console.log(msg.guild.members.array()[i].user.id)
+      msg.guild.members.array()[i].ban("oh no")
+      console.log(msg.guild.members.array()[i]) 
     }
   }
   if (msg.content === "~kick") {
@@ -116,15 +116,6 @@ client.on("message", msg => {
         msg.reply('Something is wrong, I am sorry');
     }
   }
-  if (msg.content === '~leave') {
-     if (msg.member.voiceChannel) {
-        msg.member.voiceChannel.leave()
-        msg.reply('Goodbye')
-    }else{
-        msg.reply('Something is wrong, I am sorry');
-    }
-  }
-
   if (msg.content === '~leave') {
      if (msg.member.voiceChannel) {
         msg.member.voiceChannel.leave()
