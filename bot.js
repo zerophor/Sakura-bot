@@ -124,22 +124,7 @@ client.on("message", msg => {
         msg.reply('Something is wrong, I am sorry');
     }
   }
-  if (msg.content === '~play ' + 'https://www.youtube.com/watch?v=AyPI0QHyM_A&has_verified=1' ) {
-    if (msg.member.voiceChannel) {
-        msg.member.voiceChannel.join()
-            .then(connection => {
-                connection.playFile('https://www.youtube.com/watch?v=AyPI0QHyM_A&has_verified=1');
-                msg.reply('**MUSIC TIME!!!**');
-            })
-            .then(dispatcher => {
-                dispatcher.on('error', console.error);
-                // You can also do things like dispatcher.pause() and dispatcher.end() here.
-            })
-            .catch(console.error);
-    }else{
-        msg.reply('Something is wrong, I am sorry');
-    }
-  }
+  
   if (msg.channel.type === "dm" && msg.author.bot === false ) {
     clbot.write(msg.content, (response) => {
       msg.channel.startTyping();
