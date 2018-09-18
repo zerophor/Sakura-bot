@@ -38,8 +38,8 @@ client.on("guildMemberAdd", (member) => {
 
 client.on("message", msg => {
   //adds message reply conditions
-  var enemy = msg.guild.members.length
-  var debug = msg.guild.members.array()
+  //var enemy = msg.guild.members.length
+  //var debug = msg.guild.members.array()
   if (msg.content === 'ryan jones') {
     console.log ("===" +  + "===")
     console.log("deleating messages")
